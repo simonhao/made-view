@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title #{title}
+    meta(name='viewport', content='width=device-#{width},user-scalable=#{stable}')
+    meta(name='description', content='#{desc}')
+    meta(name='keywords', content='#{keywords}')
+  body
+    header.header(id='header')
+      block header
+    main.main(id='main')
+      block main
+    footer.footer(id='footer')
+      block footer

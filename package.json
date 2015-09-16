@@ -1,0 +1,31 @@
+{
+  "name": "Made",
+  "version": "0.1.0",
+  "description": "modular HTML preprocessor & template engine like JADE",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node ./test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simonhao/Made.git"
+  },
+  "keywords": [
+    "JADE",
+    "HTML-Preprocessor"
+  ],
+  "author": "SimonHao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simonhao/Made/issues"
+  },
+  "homepage": "https://github.com/simonhao/Made",
+  "devDependencies": {
+    "assert": "^1.3.0",
+    "character-parser": "^1.2.2"
+  }
+}
