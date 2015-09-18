@@ -12,7 +12,7 @@
 ``` json
 {
   type: 'attrs',
-  val: [{
+  attrs: [{
     name: 'attr_name',
     val: 'attr_val'
   }],
@@ -32,10 +32,10 @@
 ``` json
 {type: 'block', val: 'block_name', line: line_number}
 ```
-### extends
+### extend
 ``` json
 {
-  type: 'extends',
+  type: 'extend',
   val: 'module_id',
   options: [{
     name: 'options_name',

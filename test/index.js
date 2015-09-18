@@ -6,12 +6,11 @@
 
 'use strict';
 
-/*var characterParser = require('character-parser');
+//var characterParser = require('character-parser');
 
 //var state = characterParser.parseMax('foo="(", bar=}"}", console.log(qq); var a = 123;} bing bong');
 
-var state = characterParser.parseChar('t')
-console.log(state.isString());*/
+//console.log(characterParser.parseUntil(",",','));
 
 /*var fs        = require('fs');
 var JadeLexer = require('jade-lexer').Lexer;
@@ -31,14 +30,11 @@ var fs = require('fs');
 var Lexer = require('../lib/lexer.js');
 var filename = '/Users/IetnHao/Projects/Made/test/layout.jade';
 var str      = fs.readFileSync(filename, 'utf-8');
-
 var JadeLexer = require('jade-lexer').Lexer;
-
 var lexer = new Lexer(str, filename);
 
 var a = 0;
-
-while(a < 100){
+while(a < 300){
   lexer.next();
   a++;
 }

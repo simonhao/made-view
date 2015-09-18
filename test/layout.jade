@@ -6,6 +6,13 @@ html
     meta(name='viewport', content='width=device-#{width},user-scalable=#{stable}')
     meta(name='description', content='#{desc}')
     meta(name='keywords', content='#{keywords}')
+    meta(
+      name='info'
+      weibo=weibo?'tencent':'sina'
+      email='simonhao,tencent.com'
+      phone=phone_number
+      comment='this is my comment: #{comment}'
+    )
   body
     header.header(id='header')
       block header

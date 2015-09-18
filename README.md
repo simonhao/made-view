@@ -18,9 +18,9 @@ ul
 ``` jade
 a(href='google.com') Google
 ```
-### extends
+### extend
 ``` jade
-extends(name='parent', mobile=mobile, desc='this is #{desc}') layout.jade
+extend(name='parent', mobile=mobile, desc='this is #{desc}') layout.jade
 replace header
   header Header
 prepend main
