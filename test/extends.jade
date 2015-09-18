@@ -1,0 +1,10 @@
+extends layout
+extends(name='qq', age=year_old, sex=sex ? 'male' : 'female', comment='this is #{desc}') layout
+replace header
+  div name
+    include module
+append main
+  div weibo
+    include(name='qq', age=year_old, sex=sex ? 'male' : 'female', comment='this is #{desc}') module
+prepend footer
+  div test

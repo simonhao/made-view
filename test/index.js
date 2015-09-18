@@ -28,7 +28,7 @@ while(len < 100){
 
 var fs = require('fs');
 var Lexer = require('../lib/lexer.js');
-var filename = '/Users/IetnHao/Projects/Made/test/layout.jade';
+var filename = '/Users/IetnHao/Projects/Made/test/extends.jade';
 var str      = fs.readFileSync(filename, 'utf-8');
 var JadeLexer = require('jade-lexer').Lexer;
 var lexer = new Lexer(str, filename);
