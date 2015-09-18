@@ -1,0 +1,34 @@
+case person.name
+  when 'qzone'
+    div qzone
+  when 'weibo'
+    div weibo
+  when 'news'
+    div news
+  default
+    div 'news'
+
+if person.name
+  div qzone
+    include module
+else
+  div default
+
+
+if person.name
+  div qzone
+else if person.age
+  div age
+else if person.sex
+  div sex
+else
+  div default
+
+while n < 4
+  li #{n++}
+
+each val in [1,2,3]
+  li #{val}
+
+each val,key in [1,2,3]
+  li #{val},#{key}
