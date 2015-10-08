@@ -28,12 +28,18 @@ while(len < 100){
 
 var fs = require('fs');
 var Lexer = require('../lib/lexer.js');
-var filename = '/Users/IetnHao/Projects/Made/test/include.jade';
+var Parser = require('../lib/parser.js');
+var Compiler = require('../lib/compiler.js');
+var filename = '/Users/IetnHao/Projects/Made/test/layout.jade';
 var str      = fs.readFileSync(filename, 'utf-8');
-var JadeLexer = require('jade-lexer').Lexer;
-var lexer = new Lexer(str, filename);
 
-var a = 0;
+//var lexer = new Lexer(str, filename);
+//var parser = new Parser(lexer.get_tokens(), filename);
+var compiler = new Compiler(str, filename);
+//console.log(lexer.get_tokens());
+//console.log(JSON.stringify(parser.parse()));
+console.log(compiler.compile());
+/*var a = 0;
 while(a < 300){
   lexer.next();
   a++;
@@ -41,4 +47,4 @@ while(a < 300){
 
 lexer.tokens.forEach(function(token){
   console.log(token);
-});
+});*/

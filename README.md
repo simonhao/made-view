@@ -1,4 +1,4 @@
-# Made
+# Made-View
 
 modular HTML preprocessor & template engine like JADE
 
