@@ -20,7 +20,7 @@ a(href='google.com') Google
 ```
 ### extend
 ``` jade
-extend(name='parent', mobile=mobile, desc='this is #{desc}') layout.jade
+extend(name='parent', mobile='#{mobile}', desc='this is #{desc}') layout.jade
 replace header
   header Header
 prepend main
@@ -34,7 +34,7 @@ div.person
   div.name Made
   div.age 24
   div.desc
-    include(like='eat', name=name, prefix='this is #{prefix}') desc.jade
+    include(like='eat', name='#{name}', prefix='this is #{prefix}') desc.jade
 ```
 ### conditionals
 ``` jade
