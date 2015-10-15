@@ -14,7 +14,6 @@
 ``` js
 {
   type: 'doctype',
-  line: line_number,
   val: 'html'
 }
 ```
@@ -23,7 +22,6 @@
 ``` js
 {
   type: 'tag',
-  line: line_number,
   val: 'tag_name'
 }
 ```
@@ -32,7 +30,6 @@
 ```js
 {
   type: 'attrs',
-  line: line_number,
   attrs: [{
     name: 'attr_name',
     val: 'attr_val' //属性值不包含引号
