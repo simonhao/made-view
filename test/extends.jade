@@ -1,10 +1,10 @@
-extends(name='qq', age=year_old, sex=sex?'male':'female', comment='this is #{desc}') layout.jade
+extends(name="qq", age="year_old", sex="sex?'male':'female'", comment="this is #{desc}") layout.jade
 replace header
   div name
     include module
     | this is my name
 replace main
   div weibo
-    include(name='qq', age=year_old, sex=sex?'male':'female', comment='this is #{desc}') module
+    include(name='qq', age="year_old", sex="sex?'male':'female'", comment='this is #{desc}') module
 replace footer
   div test

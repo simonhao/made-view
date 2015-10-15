@@ -1,85 +1,180 @@
-#Tokens
+# Tokens
+> 所有的Token都具有以下基本结构
+
+``` js
+{
+  type: 'type', //Token类型
+  line: line_number //行号
+}
+```
+
+## 结构
 
 ### doctype
-``` json
-{type: 'doctype', val: 'html', line: 1}
-```
-### tag
-``` json
-{type: 'tag', val: 'tag_name', line: line_number}
-```
-### attrs
-``` json
+``` js
 {
-  type: 'attrs',
-  attrs: [{
-    name: 'attr_name',
-    val: 'attr_val'
-  }],
-  line: line_number
+  type: 'doctype',
+  line: line_number,
+  val: 'html'
 }
-```
-### class
-``` json
-{type: 'class', val: 'class_name', line: line_number}
-```
-### text
-``` json
-{type: 'text', val: 'text_content', line: line_number}
 ```
 
-### block
-``` json
-{type: 'block', val: 'block_name', line: line_number}
-```
-### extend
-``` json
+### tag
+``` js
 {
-  type: 'extend',
-  val: 'module_id',
-  options: [{
-    name: 'options_name',
-    val: 'options_val'
-  }],
-  line: line_bumber
+  type: 'tag',
+  line: line_number,
+  val: 'tag_name'
 }
 ```
-### include
-``` json
+
+### attr
+```js
 {
-  type: 'include',
-  val: 'module_id',
-  options: [{
-    name: 'options_name',
-    val: 'options_val'
-  }],
-  line: line_bumber
+  type: 'attrs',
+  line: line_number,
+  attrs: [{
+    name: 'attr_name',
+    val: 'attr_val' //属性值不包含引号
+  }]
+}
+```
+
+### text
+```js
+{
+  type: 'text',
+  val: 'text_content'
+}
+```
+
+### dot
+### comment
+### code
+
+## 模块化
+
+### extends
+```js
+{
+  type: 'extends',
+  id: 'module_id',
+  options:[{
+    name: 'option_name',
+    val: 'option_val'
+  }]
 }
 ```
 
 ### replace
+```js
+{
+  type: 'replace',
+  val: 'block_name'
+}
+```
+
 ### prepend
+```js
+{
+  type: 'prepend',
+  val: 'block_name'
+}
+```
+
 ### append
+```js
+{
+  type: 'append',
+  val: 'block_name'
+}
+```
+
+### block
+```js
+{
+  type: 'block',
+  val: 'block_name'
+}
+```
+
+### class
+```js
+{
+  type: 'class',
+  val: 'class_name'
+}
+```
+
+## 逻辑类
+### if
+```js
+{
+  type: 'if',
+  val: 'exp'
+}
+```
+
+### else
+```js
+{
+  type: 'else',
+  val: 'exp'
+}
+```
+
+### elseif
+```js
+{
+  type: 'elseif',
+  val: 'exp'
+}
+```
 
 ### case
+```js
+{
+  type: 'case',
+  val: 'exp'
+}
+```
+
 ### when
+```js
+{
+  type: 'when',
+  val: 'exp'
+}
+```
+
 ### default
+```js
+{
+  type: 'default'
+}
+```
 
 ### each
+```js
+{
+  type: 'each',
+  key: 'key_name',
+  val: 'val_name',
+  exp: 'data'
+}
+```
+
 ### while
+```js
+{
+  type: 'while',
+  val: 'exp'
+}
+```
 
-### if
-### else
-### else if
-
-### code
-### dot
-### comment
-
+## 其他
 ### blank
 ### newline
 ### eos
 ### indent
 ### outdent
-
-

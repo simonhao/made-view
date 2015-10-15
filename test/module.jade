@@ -1,6 +1,7 @@
-div.container(class='icon-star')
-  div.name name
-  div.age 24
-  ul
-    li first line
-    li second line
+div.box(class="#{type}")
+  div.title
+    span(class="icon-star", data-url="url")
+    | Title : #{title}
+  div.content
+    p this is a module
+    p module's class will be add prefix auto;
