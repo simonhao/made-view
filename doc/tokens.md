@@ -23,6 +23,7 @@
 {
   type: 'tag',
   val: 'tag_name'
+  self_closeing: 'is self_closeing tag' //标签是否为自闭合标签
 }
 ```
 
@@ -55,8 +56,20 @@
 ```js
 {
   type: 'extends',
-  id: 'module_id',
+  val: 'module_id',
   options:[{
+    name: 'option_name',
+    val: 'option_val'
+  }]
+}
+```
+
+### include
+```js
+{
+  type: 'include',
+  val: 'module_id',
+  options: [{
     name: 'option_name',
     val: 'option_val'
   }]
@@ -115,8 +128,7 @@
 ### else
 ```js
 {
-  type: 'else',
-  val: 'exp'
+  type: 'else'
 }
 ```
 
