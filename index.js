@@ -67,6 +67,6 @@ exports.compile_client = function(str, options){
  * @param  {Object} options  参见公共设置
  * @return {String}          渲染结果
  */
-exports.compile_file_client = function(filename, options){
+exports.compile_client_file = function(filename, options){
 
 };

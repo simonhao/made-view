@@ -64,7 +64,45 @@ case count
 ```
 
 ## API
+### Install
+```js
+npm install made-view
+```
 
+### Compile
+```js
+var made_view = require('made-view');
+var fs = require('fs');
+
+var filename = 'module_path';
+var str = fs.readFileSync(filename, 'utf-8');
+
+var options = {
+  basedir: 'module_base_dir',
+  filename: filename,
+  entry: 'view.jade', //模块的默认入口文件，默认为 view.jade
+  ext: '.jade', //模块文件的扩展名，默认为 .jade
+  instance: 'top' //模块的实例名，默认为空
+};
+
+//预编译
+
+var render = made_view.compile(str, options);
+
+var render = made_view.compile_file(filename, options);
+
+var html = render({
+  name: 'qq'
+});
+
+//编译为客户端版本
+
+var js = made_view.compile_client(str, options);
+var js = made_view.compile_client_file(filename, options);
+
+//js为一个函数，第一个参数即为需要传递的参数
+
+```
 
 
 
