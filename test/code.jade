@@ -25,10 +25,10 @@ else
   div default
 
 while n < 4
-  li #{n++}
+  li while #{n++}
 
 each val in [1,2,3]
-  li #{val}
+  li val #{val}
 
 each val,key in [1,2,3]
-  li #{val},#{key}
+  li key,val#{val},#{key}

@@ -30,7 +30,7 @@ var fs = require('fs');
 var Lexer = require('../lib/lexer.js');
 var Parser = require('../lib/parser.js');
 var Compiler = require('../lib/compiler.js');
-var filename = '/Users/IetnHao/Projects/Made-View/test/extends.jade';
+var filename = '/Users/IetnHao/Projects/Made-View/test/code.jade';
 var str      = fs.readFileSync(filename, 'utf-8');
 
 var Made = require('../index.js');
@@ -51,7 +51,9 @@ var render = Made.compile_file(filename, {
 });
 
 console.log(render({
-  title: [1,2,3]
+  person: {},
+  title: [1,2,3],
+  n:0
 }));
 
 //var lexer = new Lexer(str, filename);
