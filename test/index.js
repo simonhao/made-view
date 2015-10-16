@@ -51,7 +51,7 @@ var render = Made.compile_file(filename, {
 });
 
 console.log(render({
-  title: '这是标题'
+  title: [1,2,3]
 }));
 
 //var lexer = new Lexer(str, filename);
