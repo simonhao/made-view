@@ -1,5 +1,6 @@
-extends(name='qq"""', age="year_old", sex="sex?'male':'female'", comment="this is #{desc}") layout.jade
+extends(name='qq"""', age="year_old", sex="sex?'male':'female'", comment="this is #{title}") layout
 replace main
-  div weibo
+  div(id='qq') weibo
 replace footer
-  div test
+  div 继承 #{title}
+  include(name='qq"""', age="year_old", sex="sex?'male':'female'", comment="this is #{title}") module

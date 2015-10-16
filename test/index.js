@@ -33,17 +33,38 @@ var Compiler = require('../lib/compiler.js');
 var filename = '/Users/IetnHao/Projects/Made-View/test/extends.jade';
 var str      = fs.readFileSync(filename, 'utf-8');
 
-//var lexer = new Lexer(str, filename);
-//var parser = new Parser(str, filename);
-var compiler = new Compiler(str, {
+var Made = require('../index.js');
+
+/*var render = Made.compile(str, {
   filename: filename,
   basedir: '/Users/IetnHao/Projects/Made-View/test/',
   entry: 'view.jade',
   instance: 'top'
 });
+
+console.log(render());*/
+
+var render = Made.compile_file(filename, {
+  basedir: '/Users/IetnHao/Projects/Made-View/test/',
+  entry: 'view.jade',
+  instance: 'top'
+});
+
+console.log(render({
+  title: '这是标题'
+}));
+
+//var lexer = new Lexer(str, filename);
+//var parser = new Parser(str, filename);
+/*var compiler = new Compiler(str, {
+  filename: filename,
+  basedir: '/Users/IetnHao/Projects/Made-View/test/',
+  entry: 'view.jade',
+  instance: 'top'
+});*/
 //console.log(JSON.stringify(lexer.get_tokens()));
 //console.log(JSON.stringify(parser.parse()));
-console.log(compiler.compile());
+//console.log(compiler.compile());
 /*var a = 0;
 while(a < 300){
   lexer.next();
