@@ -169,7 +169,7 @@
   type: 'each',
   key: 'key_name',
   val: 'val_name',
-  exp: 'data'
+  expr: 'data'
 }
 ```
 
