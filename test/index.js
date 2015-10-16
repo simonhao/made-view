@@ -30,19 +30,20 @@ var fs = require('fs');
 var Lexer = require('../lib/lexer.js');
 var Parser = require('../lib/parser.js');
 var Compiler = require('../lib/compiler.js');
-var filename = '/Users/IetnHao/Projects/Made-View/test/include.jade';
+var filename = '/Users/IetnHao/Projects/Made-View/test/extends.jade';
 var str      = fs.readFileSync(filename, 'utf-8');
 
 //var lexer = new Lexer(str, filename);
-var parser = new Parser(str, filename);
-/*var compiler = new Compiler(str, {
+//var parser = new Parser(str, filename);
+var compiler = new Compiler(str, {
   filename: filename,
-  basedir: '/Users/IetnHao/Projects/Made-View/src',
-  entry: 'index.jade',
-});*/
+  basedir: '/Users/IetnHao/Projects/Made-View/test/',
+  entry: 'view.jade',
+  instance: 'top'
+});
 //console.log(JSON.stringify(lexer.get_tokens()));
-console.log(JSON.stringify(parser.parse()));
-//console.log(compiler.compile());
+//console.log(JSON.stringify(parser.parse()));
+console.log(compiler.compile());
 /*var a = 0;
 while(a < 300){
   lexer.next();
