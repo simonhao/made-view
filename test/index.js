@@ -30,7 +30,7 @@ var fs = require('fs');
 var Lexer = require('../lib/lexer.js');
 var Parser = require('../lib/parser.js');
 var Compiler = require('../lib/compiler.js');
-var filename = '/Users/IetnHao/Projects/Made-View/test/code.jade';
+var filename = '/Users/IetnHao/Projects/Made-View/test/module.jade';
 var str      = fs.readFileSync(filename, 'utf-8');
 
 var Made = require('../index.js');
