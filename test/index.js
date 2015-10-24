@@ -44,7 +44,7 @@ var Made = require('../index.js');
 
 console.log(render());*/
 
-var render = Made.compile_file(filename, {
+/*var render = Made.compile_file(filename, {
   basedir: '/Users/IetnHao/Projects/Made-View/test/',
   entry: 'view.jade',
   instance: 'top'
@@ -54,9 +54,9 @@ console.log(render({
   person: {},
   title: [1,2,3],
   n:0
-}));
+}));*/
 
-//var lexer = new Lexer(str, filename);
+var lexer = new Lexer(str, filename);
 //var parser = new Parser(str, filename);
 /*var compiler = new Compiler(str, {
   filename: filename,
@@ -64,7 +64,8 @@ console.log(render({
   entry: 'view.jade',
   instance: 'top'
 });*/
-//console.log(JSON.stringify(lexer.get_tokens()));
+console.log(JSON.stringify(lexer.get_tokens()));
+//console.log(lexer.get_tokens());
 //console.log(JSON.stringify(parser.parse()));
 //console.log(compiler.compile());
 /*var a = 0;
