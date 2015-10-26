@@ -30,14 +30,14 @@ var fs = require('fs');
 var Lexer = require('../lib/lexer.js');
 var Parser = require('../lib/parser.js');
 var Compiler = require('../lib/compiler.js');
-var filename = '/Users/IetnHao/Projects/Made-View/test/extends.jade';
+var filename = __dirname + '/extends.jade';
 var str      = fs.readFileSync(filename, 'utf-8');
 
 var Made = require('../index.js');
 
 var render = Made.compile(str, {
   filename: filename,
-  basedir: '/Users/IetnHao/Projects/Made-View/test/',
+  basedir: __dirname,
   entry: 'view.jade',
   instance: 'top'
 });
