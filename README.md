@@ -1,6 +1,8 @@
 # Made-View
-
+[![Build Status](https://travis-ci.org/simonhao/made-view.svg?branch=master)](https://travis-ci.org/simonhao/made-view)
 modular HTML preprocessor & template engine like JADE
+
+made-view include and extends module dose't use ast. so, variables is isolated.
 
 ## Language Reference
 ### doctype
@@ -16,11 +18,22 @@ ul
 ```
 ### attributes
 ``` jade
-a(href='google.com') Google
+a(href='http://google.com') Google
+a(href='http://mail.com'
+  title='Mail'
+  ) Link to Mail
 ```
 ### extend
 ``` jade
-extend(name='parent', mobile='#{mobile}', desc='this is #{desc}') layout.jade
+extend(
+    name={
+      first: 'simon',
+      last: 'hao'
+    }
+    mobile='my phone : #{mobile}'
+    desc='this is #{desc}'
+    keywords=['web', 'code']
+  ) layout.jade
 replace header
   header Header
 prepend main
@@ -34,7 +47,7 @@ div.person
   div.name Made
   div.age 24
   div.desc
-    include(like='eat', name='#{name}', prefix='this is #{prefix}') desc.jade
+    include(like=eat, name='#{name}', prefix='this is #{prefix}') desc.jade
 ```
 ### conditionals
 ``` jade
