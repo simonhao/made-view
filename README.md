@@ -1,7 +1,7 @@
 # Made-View
 [![Build Status](https://travis-ci.org/simonhao/made-view.svg?branch=master)](https://travis-ci.org/simonhao/made-view)
-modular HTML preprocessor & template engine like JADE
 
+modular HTML preprocessor & template engine like JADE
 made-view include and extends module dose't use ast. so, variables is isolated.
 
 ## Language Reference
