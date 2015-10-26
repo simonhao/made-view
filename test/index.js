@@ -30,19 +30,21 @@ var fs = require('fs');
 var Lexer = require('../lib/lexer.js');
 var Parser = require('../lib/parser.js');
 var Compiler = require('../lib/compiler.js');
-var filename = '/Users/IetnHao/Projects/Made-View/test/module.jade';
+var filename = '/Users/IetnHao/Projects/Made-View/test/extends.jade';
 var str      = fs.readFileSync(filename, 'utf-8');
 
 var Made = require('../index.js');
 
-/*var render = Made.compile(str, {
+var render = Made.compile(str, {
   filename: filename,
   basedir: '/Users/IetnHao/Projects/Made-View/test/',
   entry: 'view.jade',
   instance: 'top'
 });
 
-console.log(render());*/
+console.log(render({
+  title: '这是输入的值'
+}));
 
 /*var render = Made.compile_file(filename, {
   basedir: '/Users/IetnHao/Projects/Made-View/test/',
@@ -56,7 +58,7 @@ console.log(render({
   n:0
 }));*/
 
-var lexer = new Lexer(str, filename);
+//var lexer = new Lexer(str, filename);
 //var parser = new Parser(str, filename);
 /*var compiler = new Compiler(str, {
   filename: filename,
@@ -64,7 +66,7 @@ var lexer = new Lexer(str, filename);
   entry: 'view.jade',
   instance: 'top'
 });*/
-console.log(JSON.stringify(lexer.get_tokens()));
+//console.log(JSON.stringify(lexer.get_tokens()));
 //console.log(lexer.get_tokens());
 //console.log(JSON.stringify(parser.parse()));
 //console.log(compiler.compile());
