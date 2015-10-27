@@ -1,6 +1,9 @@
-extends(name='qq"""', age="yea,,,r_old", sex="sex?'male':'female'") layout
+extends(title=title) layout
 replace main
-  div(id='qq') weibo
+  div.main(id='main') This replace Main
 replace footer
-  div 继承 #{title + 1}
-  include(name='qq"""', age="year_old", sex="sex?'male':'female'", title="this is #{title}") module
+  div.footer(id='footer') This is replace Footer
+  div This is include Module Top
+    include(style='top') module:top
+  div This is include Module Bottom
+    include(style='bottom') module:bottom
