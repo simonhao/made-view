@@ -17,12 +17,14 @@ var str      = fs.readFileSync(filename, 'utf-8');
 
 var Made = require('../index.js');
 
-var render = Made.compile(str, {
+var options = {
   filename: filename,
   basedir: __dirname,
   entry: 'view.jade',
   instance: 'index'
-});
+};
+
+var render = Made.compile(str, options);
 
 console.log(render({
   title: 'Test Page'

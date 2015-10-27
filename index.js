@@ -44,11 +44,10 @@ exports.compile = function(str, options){
  */
 exports.compile_file = function(filename, options){
   var str = fs.readFileSync(filename, 'utf-8');
-  var options = extend({
-    filename: filename
-  }, options);
 
-  return exports.compile(str, options);
+  return exports.compile(str, extend({
+    filename: filename
+  }, options));
 };
 
 /**
@@ -58,7 +57,9 @@ exports.compile_file = function(filename, options){
  * @return {String}         渲染结果
  */
 exports.compile_client = function(str, options){
+  var compiler = new Compiler(str, options);
 
+  return 'function(locals, made){' + compiler.compile() + '}';
 };
 
 /**
@@ -68,5 +69,9 @@ exports.compile_client = function(str, options){
  * @return {String}          渲染结果
  */
 exports.compile_client_file = function(filename, options){
+  var str = fs.readFileSync(filename, 'utf-8');
 
+  return exports.compile_client(str, extend({
+    filename: filename
+  }, options));
 };
