@@ -1,8 +1,12 @@
 # Made-View
 [![Build Status](https://travis-ci.org/simonhao/made-view.svg?branch=master)](https://travis-ci.org/simonhao/made-view)
 
-modular HTML preprocessor & template engine like JADE
-made-view include and extends module dose't use ast. so, variables is isolated.
+## Getting Started
+module's short-class will transform automatic, class will become sid + class. sid generate use [made-id](https://github.com/simonhao/made-id).
+
+module's id will become sit + instance + id.
+
+more case please read [test/index.js](https://github.com/simonhao/made-view/blob/master/test/index.js)
 
 ## Language Reference
 ### doctype
@@ -46,8 +50,9 @@ append footer
 div.person
   div.name Made
   div.age 24
+    include(like=tea, name='#{author}') desc.jade:top
   div.desc
-    include(like=eat, name='#{name}', prefix='this is #{prefix}') desc.jade
+    include(like=eat, name='#{name}') desc.jade:bottom
 ```
 ### conditionals
 ``` jade
@@ -82,6 +87,26 @@ case count
 npm install made-view
 ```
 
+### Options
+``` javascript
+var options = {
+  basedir: 'module_base_dir', //模块相对的根目录，一般来说为工程的src目录
+  filename: filename, //模块文件名
+  entry: 'view.jade', //模块的入口文件
+  ext: '.jade', //模块的默认扩展名
+  instance: '' //模块的实例名
+};
+```
+
+### Transform
+``` javascript
+{ //转换属性
+  src: function(val, sid, options){
+    return 'http://' + server_name + server_path + val + md5;
+  }
+}
+```
+
 ### Compile
 ```js
 var made_view = require('made-view');
@@ -93,16 +118,21 @@ var str = fs.readFileSync(filename, 'utf-8');
 var options = {
   basedir: 'module_base_dir',
   filename: filename,
-  entry: 'view.jade', //模块的默认入口文件，默认为 view.jade
-  ext: '.jade', //模块文件的扩展名，默认为 .jade
-  instance: 'top' //模块的实例名，默认为空
+  entry: 'view.jade',
+  ext: '.jade',
+  instance: 'top'
 };
 
+var transform = {
+  src: function(val, sid, options){
+    return 'http://' + server_name + server_path + val + md5;
+  }
+};
 //预编译
 
-var render = made_view.compile(str, options);
+var render = made_view.compile(str, options, transform);
 
-var render = made_view.compile_file(filename, options);
+var render = made_view.compile_file(filename, options, transform);
 
 var html = render({
   name: 'qq'
@@ -110,8 +140,8 @@ var html = render({
 
 //编译为客户端版本
 
-var js = made_view.compile_client(str, options);
-var js = made_view.compile_client_file(filename, options);
+var js = made_view.compile_client(str, options, transform);
+var js = made_view.compile_client_file(filename, options, transform);
 
 //js为一个函数，第一个参数即为需要传递的参数
 

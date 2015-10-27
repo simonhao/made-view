@@ -24,7 +24,13 @@ var options = {
   instance: 'index'
 };
 
-var render = Made.compile(str, options);
+var transform = {
+  src: function(val, sid, options){
+    return 'transform' + sid + val;
+  }
+};
+
+var render = Made.compile(str, options, transform);
 
 console.log(render({
   title: 'Test Page'

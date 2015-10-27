@@ -16,6 +16,7 @@ var extend   = require('extend');
  * @param {String} entry    默认入口文件
  * @param {String} instance 实例名称
  * @param {String} filename 文件名
+ * @param {Object} transform 自动转换属性
  */
 
 /**
@@ -24,8 +25,8 @@ var extend   = require('extend');
  * @param  {Object} options 参见公共设置
  * @return {Function}       一个渲染函数
  */
-exports.compile = function(str, options){
-  var compiler = new Compiler(str, options);
+exports.compile = function(str, options, transform){
+  var compiler = new Compiler(str, options, transform);
 
   var render_func = new Function('locals, made', compiler.compile());
 
@@ -42,12 +43,12 @@ exports.compile = function(str, options){
  * @param  {Object} options  参见公共设置
  * @return {Function}       一个渲染函数
  */
-exports.compile_file = function(filename, options){
+exports.compile_file = function(filename, options, transform){
   var str = fs.readFileSync(filename, 'utf-8');
 
   return exports.compile(str, extend({
     filename: filename
-  }, options));
+  }, options), transform);
 };
 
 /**
@@ -56,8 +57,8 @@ exports.compile_file = function(filename, options){
  * @param  {Object} options 参见公共设置
  * @return {String}         渲染结果
  */
-exports.compile_client = function(str, options){
-  var compiler = new Compiler(str, options);
+exports.compile_client = function(str, options, transform){
+  var compiler = new Compiler(str, options, transform);
 
   return 'function(locals, made){' + compiler.compile() + '}';
 };
@@ -68,10 +69,10 @@ exports.compile_client = function(str, options){
  * @param  {Object} options  参见公共设置
  * @return {String}          渲染结果
  */
-exports.compile_client_file = function(filename, options){
+exports.compile_client_file = function(filename, options, transform){
   var str = fs.readFileSync(filename, 'utf-8');
 
   return exports.compile_client(str, extend({
     filename: filename
-  }, options));
+  }, options), transform);
 };
