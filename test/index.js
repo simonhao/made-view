@@ -11,14 +11,11 @@ var Lexer    = require('../lib/lexer.js');
 var Parser   = require('../lib/parser.js');
 var Compiler = require('../lib/compiler.js');
 
-var filename = __dirname + '/extends.jade';
-var fs       = require('fs');
-var str      = fs.readFileSync(filename, 'utf-8');
+var test_file = ['list.jade', 'extends.jade', 'special.jade'];
 
 var Made = require('../index.js');
 
 var options = {
-  filename: filename,
   basedir: __dirname,
   entry: 'view.jade',
   instance: 'index'
@@ -30,8 +27,12 @@ var transform = {
   }
 };
 
-var render = Made.compile(str, options, transform);
+test_file.forEach(function(file){
+  var filename = __dirname + '/' + file;
+  var render = Made.compile_file(filename, options, transform);
 
-console.log(render({
-  title: '<><>"""&&&Test Page'
-}));
+  console.log(render({
+    title: '<><>"""&&&Test Page'
+  }));
+  console.log('----------------')
+});
