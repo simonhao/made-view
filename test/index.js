@@ -33,5 +33,5 @@ var transform = {
 var render = Made.compile(str, options, transform);
 
 console.log(render({
-  title: 'Test Page'
+  title: '<><>"""&&&Test Page'
 }));
