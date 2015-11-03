@@ -1,6 +1,6 @@
 {
   "name": "made-view",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "modular HTML preprocessor & template engine like JADE",
   "main": "index.js",
   "directories": {
