@@ -7,6 +7,7 @@
 'use strict';
 
 var Compiler = require('./lib/compiler');
+var Parser   = require('./lib/parser');
 var runtime  = require('made-runtime');
 var fs       = require('fs');
 var extend   = require('extend');
@@ -20,13 +21,13 @@ var extend   = require('extend');
  */
 
 /**
- * 渲染一个模块为HTML
- * @param  {String} str     模块文本
- * @param  {Object} options 参见公共设置
- * @return {Function}       一个渲染函数
+ * 将语法树渲染成HTML
+ * @param  {Object} ast       语法树
+ * @param  {Object} options   参见公共设置
+ * @return {Function}         一个渲染函数
  */
-exports.compile = function(str, options, transform){
-  var compiler = new Compiler(str, options, transform);
+exports.compile_ast = function(ast, options, transform){
+  var compiler = new Compiler(ast, options, transform);
 
   var render_func = new Function('locals, made', compiler.compile());
 
@@ -35,6 +36,18 @@ exports.compile = function(str, options, transform){
   };
 
   return render;
+};
+
+/**
+ * 渲染一个模块为HTML
+ * @param  {String} str     模块文本
+ * @param  {Object} options 参见公共设置
+ * @return {Function}       一个渲染函数
+ */
+exports.compile = function(str, options, transform){
+  var ast = new Parser(str, options.filename).parse();
+
+  return exports.compile_ast(ast, options, transform);
 };
 
 /**
@@ -51,6 +64,7 @@ exports.compile_file = function(filename, options, transform){
   }, options), transform);
 };
 
+
 /**
  * 将模块渲染为客户端使用的JS
  * @param  {String} str     模块文本
@@ -58,7 +72,8 @@ exports.compile_file = function(filename, options, transform){
  * @return {String}         渲染结果
  */
 exports.compile_client = function(str, options, transform){
-  var compiler = new Compiler(str, options, transform);
+  var ast = new Parser(str, options.filename).parse();
+  var compiler = new Compiler(ast, options, transform);
 
   return 'function(locals, made){' + compiler.compile() + '}';
 };
