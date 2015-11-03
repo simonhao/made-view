@@ -17,13 +17,13 @@ var extend   = require('extend');
  * @param {String} entry    默认入口文件
  * @param {String} instance 实例名称
  * @param {String} filename 文件名
- * @param {Object} transform 自动转换属性
  */
 
 /**
  * 将语法树渲染成HTML
  * @param  {Object} ast       语法树
  * @param  {Object} options   参见公共设置
+ * @param  {Object} transform 自动转换属性
  * @return {Function}         一个渲染函数
  */
 exports.compile_ast = function(ast, options, transform){
@@ -42,6 +42,7 @@ exports.compile_ast = function(ast, options, transform){
  * 渲染一个模块为HTML
  * @param  {String} str     模块文本
  * @param  {Object} options 参见公共设置
+ * @param  {Object} transform 自动转换属性
  * @return {Function}       一个渲染函数
  */
 exports.compile = function(str, options, transform){
@@ -54,6 +55,7 @@ exports.compile = function(str, options, transform){
  * 就指定文件渲染为HTML
  * @param  {String} filename 模块路径
  * @param  {Object} options  参见公共设置
+ * @param  {Object} transform 自动转换属性
  * @return {Function}       一个渲染函数
  */
 exports.compile_file = function(filename, options, transform){
@@ -69,6 +71,7 @@ exports.compile_file = function(filename, options, transform){
  * 将模块渲染为客户端使用的JS
  * @param  {String} str     模块文本
  * @param  {Object} options 参见公共设置
+ * @param  {Object} transform 自动转换属性
  * @return {String}         渲染结果
  */
 exports.compile_client = function(str, options, transform){
@@ -82,6 +85,7 @@ exports.compile_client = function(str, options, transform){
  * 将制定文件渲染为客户端使用的JS
  * @param  {String} filename 模块文件
  * @param  {Object} options  参见公共设置
+ * @param  {Object} transform 自动转换属性
  * @return {String}          渲染结果
  */
 exports.compile_client_file = function(filename, options, transform){
