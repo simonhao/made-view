@@ -78,7 +78,7 @@ exports.compile_client = function(str, options, transform){
   var ast = new Parser(str, options.filename).parse();
   var compiler = new Compiler(ast, options, transform);
 
-  return 'function(locals, made){' + compiler.compile() + '}';
+  return 'function(locals){' + compiler.compile() + '}';
 };
 
 /**
