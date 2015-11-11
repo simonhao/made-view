@@ -17,8 +17,7 @@ var Made = require('../index.js');
 
 var options = {
   basedir: __dirname,
-  entry: 'view.jade',
-  instance: 'index'
+  instance: 'qq'
 };
 
 var transform = {
