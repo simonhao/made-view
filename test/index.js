@@ -7,7 +7,7 @@
 'use strict';
 
 
-var test_file = ['layout.jade'];
+var test_file = ['extends.jade'];
 
 var Made = require('../index.js');
 
@@ -27,7 +27,7 @@ test_file.forEach(function(file){
   var render = Made.compile_file(filename, options, transform);
 
   console.log(render({
-    title: '<><>"""&&&Test Page',
+    title: '这是比赛<><>"""&&&Test Page',
     qq: 'tt',
     weibo: {
       qq:'123'

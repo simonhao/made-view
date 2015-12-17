@@ -1,7 +1,13 @@
-extends(title=title) layout
+extends(title='this is title#{title}', keywords=['build','html']) layout
 replace main
   div.main(id='main', src='extends_bg') This replace Main
-replace footer
+replace main
+  div this is replace #{title} two
+before main
+  div this is before
+after main
+  div this is after
+after footer
   div.footer(id='footer') This is replace Footer
   div This is include Module Top
     include(style='top') module:top

@@ -1,8 +1,9 @@
 doctype html
-html.class.qzone(class="qzone weibo #{qq}", id="container", simon="hao", disable)
-  head(name=weibo, qzone=[1,2,3], weibo=weibo.qq, ten=weibo['123'], qq={name:123,name:'12""3',name:[123,"123'''"]})
+html
+  head
     meta(charset='utf-8')
-    title Page: #{weibo} qzone #{weibo ? '123': '456'}
+    title #{title}
+    meta(name='keywords', content=keywords)
   body
     header.header(id="header", src='layout_bg')
       block header
@@ -12,4 +13,4 @@ html.class.qzone(class="qzone weibo #{qq}", id="container", simon="hao", disable
         div Main
     footer.footer(id="footer")
       block footer
-        div Main
+        div Footer
