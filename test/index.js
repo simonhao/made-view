@@ -7,7 +7,7 @@
 'use strict';
 
 
-var test_file = ['special.jade'];
+var test_file = ['code.jade'];
 
 var Made = require('../index.js');
 
@@ -28,6 +28,9 @@ test_file.forEach(function(file){
 
   console.log(render({
     title: '这是比赛<><>"""&&&Test Page',
+    person: {
+      name: 'qzone'
+    },
     qq: 'tt',
     weibo: {
       qq:'123'
