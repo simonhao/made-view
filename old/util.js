@@ -1,7 +1,7 @@
 /**
- * Utils
+ * Made-View Utils
  * @author: SimonHao
- * @date:   2015-12-16 15:42:59
+ * @date:   2015-10-09 15:26:39
  */
 
 'use strict';

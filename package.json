@@ -27,12 +27,13 @@
   "homepage": "https://github.com/simonhao/made-view",
   "devDependencies": {},
   "dependencies": {
-    "detect-es": "^0.4.0",
+    "character-parser": "^2.1.1",
     "extend": "^3.0.0",
+    "install": "^0.4.1",
     "made-id": "^0.2.3",
     "made-runtime": "^0.1.1",
-    "made-tags": "^0.1.1",
+    "made-view-parser": "^0.2.0",
     "made-with": "^1.0.1",
-    "token-stream": "0.0.1"
+    "npm": "^3.5.2"
   }
 }

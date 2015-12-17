@@ -7,11 +7,7 @@
 'use strict';
 
 
-var Lexer    = require('../lib/lexer.js');
-var Parser   = require('../lib/parser.js');
-var Compiler = require('../lib/compiler.js');
-
-var test_file = ['list.jade', 'extends.jade', 'special.jade'];
+var test_file = ['layout.jade'];
 
 var Made = require('../index.js');
 
@@ -21,8 +17,8 @@ var options = {
 };
 
 var transform = {
-  src: function(val, sid, options){
-    return 'transform' + sid + val;
+  src: function(val, options){
+    return 'transform-' + options.sid + '-' + val;
   }
 };
 
@@ -31,7 +27,11 @@ test_file.forEach(function(file){
   var render = Made.compile_file(filename, options, transform);
 
   console.log(render({
-    title: '<><>"""&&&Test Page'
+    title: '<><>"""&&&Test Page',
+    qq: 'tt',
+    weibo: {
+      qq:'123'
+    }
   }));
   console.log('----------------')
 });

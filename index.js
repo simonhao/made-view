@@ -7,10 +7,11 @@
 'use strict';
 
 var Compiler = require('./lib/compiler');
-var Parser   = require('./lib/parser');
+var Parser   = require('made-view-parser');
 var runtime  = require('made-runtime');
 var fs       = require('fs');
 var extend   = require('extend');
+
 /**
  * 公共设置
  * @param {String} basedir  根目录
@@ -29,9 +30,17 @@ var extend   = require('extend');
 exports.compile_ast = function(ast, options, transform){
   var compiler = new Compiler(ast, options, transform);
 
-  var render_func = new Function('locals, made', compiler.compile());
+  var code  = [
+    'var __made_buf = [];',
+    'var __made_block = __made_block || {};',
+    'var __made_locals = __made_locals || {};',
+    compiler.compile(),
+    'return __made_buf.join("");'];
+
+  var render_func = new Function('__made_locals, made', code.join('\n'));
 
   var render = function(locals){
+    /*return code.join('\n');*/
     return render_func(locals, Object.create(runtime));
   };
 
