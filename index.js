@@ -86,7 +86,14 @@ exports.compile_client = function(str, options, transform){
   var ast = new Parser(str, options.filename).parse();
   var compiler = new Compiler(ast, options, transform);
 
-  return 'function(locals){' + compiler.compile() + '}';
+  var code  = [
+    'var __made_buf = [];',
+    'var __made_block = __made_block || {};',
+    'var __made_locals = __made_locals || {};',
+    compiler.compile(),
+    'return __made_buf.join("");'];
+
+  return 'function(__made_locals){' + code.join('') + '}';
 };
 
 /**
