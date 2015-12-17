@@ -1,7 +1,2 @@
 div.test
-  include module.jade
-  extends box.jade
-  replace title
-    | this is title
-  replace content
-    include module.jade
+  include(style='qqq-we', qq=123, name={name:'123'}) module.jade
