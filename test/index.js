@@ -7,7 +7,7 @@
 'use strict';
 
 
-var test_file = ['compon.jade'];
+var test_file = ['code.jade'];
 
 var Made = require('../index.js');
 
