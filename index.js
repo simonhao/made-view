@@ -37,11 +37,11 @@ exports.compile_ast = function(ast, options, transform){
     compiler.compile(),
     'return __made_buf.join("");'];
 
-  /*var render_func = new Function('__made_locals, made', code.join('\n'));*/
+  var render_func = new Function('__made_locals, made', code.join('\n'));
 
   var render = function(locals){
-    return code.join('\n');
-    /*return render_func(locals, Object.create(runtime));*/
+    /*return code.join('\n');*/
+    return render_func(locals, Object.create(runtime));
   };
 
   return render;
