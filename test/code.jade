@@ -7,14 +7,11 @@ case person.name
     div news
   default
     div 'news'
-
 if person.name === 'qq'
   div qzone
     include module
 else
   div default
-
-
 if person.name
   div qzone
 else if person.age
@@ -23,12 +20,9 @@ else if person.sex
   div sex
 else
   div default
-
 while n < 4
   li while #{n++}
-
 each val in [1,2,3]
   li val #{val}
-
 each val,key in [1,2,3]
   li key,val#{val},#{key}

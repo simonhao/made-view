@@ -14,10 +14,13 @@ var extend   = require('extend');
 
 /**
  * 公共设置
- * @param {String} basedir  根目录
  * @param {String} entry    默认入口文件
+ * @param {String} ext      扩展名
+ * @param {String} basedir  根目录
  * @param {String} instance 实例名称
  * @param {String} filename 文件名
+ * @param {String} model    设置构建模式
+ * @param {Boolean} pretty  构建结果是否格式化
  */
 
 /**
@@ -98,7 +101,7 @@ exports.compile_client = function(str, options, transform){
 };
 
 /**
- * 将制定文件渲染为客户端使用的JS
+ * 将指定文件渲染为客户端使用的JS
  * @param  {String} filename 模块文件
  * @param  {Object} options  参见公共设置
  * @param  {Object} transform 自动转换属性
