@@ -2,8 +2,9 @@ doctype html
 html
   head
     meta(charset='utf-8')
-    title #{title}
-    meta(name='keywords', content=keywords)
+    title !{title} #{title}
+    meta(name='desc#{title,weibo,test}desc', desc={name:qq, weibo:title}, content=[name,weibo])
+    meta(name='keywords', content=keywords, title=title.qq, desc=title['desc'])
   body
     header.header(id="header", src='layout_bg')
       block header
