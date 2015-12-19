@@ -7,13 +7,14 @@
 'use strict';
 
 
-var test_file = ['extends.jade'];
+var test_file = ['compon.jade'];
 
 var Made = require('../index.js');
 
 var options = {
   basedir: __dirname,
-  instance: 'qq'
+  instance: 'qq',
+  dep: true
 };
 
 var transform = {

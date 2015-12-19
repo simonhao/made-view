@@ -20,6 +20,7 @@ var extend   = require('extend');
  * @param {String} instance 实例名称
  * @param {String} filename 文件名
  * @param {String} model    设置构建模式
+ * @param {String} dep      设置是否返回组件依赖
  * @param {Boolean} pretty  构建结果是否格式化
  */
 
@@ -36,9 +37,20 @@ exports.compile_ast = function(ast, options, transform){
   var code  = [
     'var __made_buf = [];',
     'var __made_block = __made_block || {};',
-    'var __made_locals = __made_locals || {};',
-    compiler.compile(),
-    'return __made_buf.join("");'];
+    'var __made_locals = __made_locals || {};'];
+
+  if(options.dep){
+    code.push('var __made_dep = [];');
+  }
+
+  code.push(compiler.compile());
+
+  if(options.dep){
+    code.push('return [__made_buf.join(""), __made_dep];');
+  }else{
+    code.push('return __made_buf.join("");');
+  }
+
 
   var render_func = new Function('__made_locals, made', code.join('\n'));
 
@@ -93,9 +105,20 @@ exports.compile_client = function(str, options, transform){
   var code  = [
     'var __made_buf = [];',
     'var __made_block = __made_block || {};',
-    'var __made_locals = __made_locals || {};',
-    compiler.compile(),
-    'return __made_buf.join("");'];
+    'var __made_locals = __made_locals || {};'];
+
+  if(options.dep){
+    code.push('var __made_dep = [];');
+  }
+
+  code.push(compiler.compile());
+
+  if(options.dep){
+    code.push('return [__made_buf.join(""), __made_dep];');
+  }else{
+    code.push('return __made_buf.join("");');
+  }
+
 
   return 'function(__made_locals){' + code.join('') + '}';
 };
