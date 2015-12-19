@@ -18,7 +18,8 @@ var options = {
 };
 
 var transform = {
-  src: function(val, options){
+  src: function(val, tag_name, options){
+    console.log(tag_name);
     return 'transform-' + options.sid + '-' + val;
   }
 };
