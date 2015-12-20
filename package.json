@@ -1,6 +1,6 @@
 {
   "name": "made-view",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "modular HTML preprocessor & template engine like JADE",
   "main": "index.js",
   "directories": {
@@ -29,9 +29,9 @@
   "dependencies": {
     "character-parser": "^2.1.1",
     "extend": "^3.0.0",
-    "made-id": "^0.2.3",
-    "made-runtime": "^0.1.5",
-    "made-view-parser": "^0.2.3",
-    "made-with": "^1.0.2"
+    "made-id": "^0.2.4",
+    "made-runtime": "^1.0.0",
+    "made-view-parser": "^0.3.0",
+    "made-with": "^1.1.0"
   }
 }
