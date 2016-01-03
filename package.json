@@ -3,6 +3,7 @@
   "version": "0.6.0",
   "description": "modular HTML preprocessor & template engine like JADE",
   "main": "index.js",
+  "browser": "runtime.js",
   "directories": {
     "doc": "doc",
     "test": "test"
