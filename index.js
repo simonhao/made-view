@@ -8,7 +8,7 @@
 
 var Compiler = require('./lib/compiler');
 var Parser   = require('made-view-parser');
-var runtime  = require('made-runtime');
+var runtime  = require('./runtime');
 var fs       = require('fs');
 var extend   = require('extend');
 
