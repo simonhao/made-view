@@ -52,10 +52,9 @@ exports.compile_ast = function(ast, options, transform){
   }
 
 
-  var render_func = new Function('__made_locals, made', code.join('\n'));
+  var render_func = new Function('__made_locals, __made_view', code.join('\n'));
 
   var render = function(locals){
-    /*return code.join('\n');*/
     return render_func(locals, Object.create(runtime));
   };
 
@@ -71,7 +70,6 @@ exports.compile_ast = function(ast, options, transform){
  */
 exports.compile = function(str, options, transform){
   var ast = new Parser(str, options.filename).parse();
-
   return exports.compile_ast(ast, options, transform);
 };
 
@@ -120,7 +118,7 @@ exports.compile_client = function(str, options, transform){
   }
 
 
-  return 'function(__made_locals){' + code.join('') + '}';
+  return 'var __made_view = require("made-view");\n module.exports = function(__made_locals){' + code.join('') + '}';
 };
 
 /**

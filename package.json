@@ -1,7 +1,7 @@
 {
   "name": "made-view",
-  "version": "0.6.0",
-  "description": "modular HTML preprocessor & template engine like JADE",
+  "version": "0.7.0",
+  "description": "components html preprocessor use for made-build",
   "main": "index.js",
   "browser": "runtime.js",
   "directories": {
@@ -28,10 +28,10 @@
   "homepage": "https://github.com/simonhao/made-view",
   "devDependencies": {},
   "dependencies": {
+    "acorn-globals": "^2.0.0",
     "character-parser": "^2.1.1",
     "extend": "^3.0.0",
     "made-id": "^0.2.4",
     "made-view-parser": "^0.3.0",
-    "made-with": "^1.1.0"
   }
 }
