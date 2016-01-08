@@ -31,7 +31,7 @@
     "acorn-globals": "^2.0.0",
     "character-parser": "^2.1.1",
     "extend": "^3.0.0",
-    "made-id": "^0.2.4",
+    "made-id": "^0.3.0",
     "made-view-parser": "^0.3.0",
   }
 }
