@@ -117,8 +117,7 @@ exports.compile_client = function(str, options, transform){
     code.push('return __made_buf.join("");');
   }
 
-
-  return 'var __made_view = require("made-view");\n module.exports = function(__made_locals){' + code.join('') + '}';
+  return 'module.exports = function(__made_locals){' + code.join('') + '}; module.exports._default = module.exports;';
 };
 
 /**
