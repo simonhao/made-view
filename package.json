@@ -1,6 +1,6 @@
 {
   "name": "made-view",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "components html preprocessor use for made-build",
   "main": "index.js",
   "browser": "browser.js",

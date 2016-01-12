@@ -7,20 +7,20 @@
 'use strict';
 
 
-var test_file = ['compon.jade'];
+var test_file = ['extends.jade'];
 
 var Made = require('../index.js');
 
 var options = {
   basedir: __dirname,
-  instance: 'qq',
-  dep: true
+  instance: 'qq'
 };
 
 var transform = {
   src: function(val, tag_name, options){
-    console.log(tag_name);
-    return 'transform-' + options.sid + '-' + val;
+    if(val.indexOf('extends_bg') >= 0){
+      return 'transform-' + options.ext + '-' + val;
+    }
   }
 };
 

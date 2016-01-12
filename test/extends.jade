@@ -1,6 +1,6 @@
-extends(title=title, keywords=['&&""<>build','html']) layout
+extends(title='#{title}', keywords=['&&""<>build','html'], src='extends_bg') layout
 replace main
-  div.main(id='main', src='extends_bg') This replace Main
+  div.main(id='main', src='extends_bg', src='#{title}') This replace Main
 replace main
   div this is replace #{title} two
   extends box
