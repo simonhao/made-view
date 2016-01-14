@@ -1,0 +1,11 @@
+extends(title='#{weibiweoweow}', keywords=['&&""<>build','html'], src='extends_bg') layout
+replace main
+  weibo:top
+    test:qq(params=[{
+      place: '部落名',
+      name:'buluo_name'
+    },{
+      place: '房间名',
+      name: 'room_name'
+    }])
+    module:bottom
